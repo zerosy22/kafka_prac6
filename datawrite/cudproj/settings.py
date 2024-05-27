@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-q$ru3t&!bvtnno=5y)jr54c**2-b!8w9er+ms9d$qweibp2fa_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "cudproj",
+    "cudapp",
 ]
 
 MIDDLEWARE = [
@@ -75,9 +78,13 @@ WSGI_APPLICATION = "cudproj.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    "ENGINE": "django.db.backends.mysql",
+    "NAME": "db_user",
+    "USER": "admin_user",
+    "PASSWORD": "user0409",
+    "HOST": "dbmysqluser.cfko8844sqv2.ap-northeast-2.rds.amazonaws.com",
+    "PORT": "3306",
+}
 }
 
 
@@ -105,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Seoul"
 
 USE_I18N = True
 
