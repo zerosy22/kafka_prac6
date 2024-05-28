@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     "rest_framework",
     # "readapp",
     "readapp.apps.ReadappConfig",
-
 ]
 
 MIDDLEWARE = [
