@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import {Paper} from "@material-ui/core";
@@ -19,8 +19,10 @@ function App() {
         } else {
           alert("읽기 실패");
         }
+      }).catch(error => {
+        console.error("Error fetching data:", error);
       });
-  }, [data]);
+    }, [data]);
   // const [data, setData] = useState(0);
   // }, [data]);
   // 이 두개가 데이터가 바뀔때마다 데이터를 다시 읽어옵니다.
@@ -32,12 +34,14 @@ function App() {
     console.log("user : ", user);
     axios.post("http://127.0.0.1:8000/cqrs/signup_cud/", user).then((response) => {
       console.log(response.data)
-      if (response.data.bid) {
-        alert("저장에 성공했습니다.")
+      if (response.status === 201) {
+        alert("저장에 성공했습니다.");
         setData(data + 1);  // 데이터 상태 변경으로 인해 useEffect 재실행
       } else {
         alert("코멘트를 저장하지 못했습니다.");
       }
+    }).catch(error => {
+      console.error("Error saving data:", error);
     });
 };
 

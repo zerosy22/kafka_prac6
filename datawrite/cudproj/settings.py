@@ -55,7 +55,7 @@ MIDDLEWARE = [
 ]
 
 # CORS 관련 추가
-CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:3000'
+CORS_ORIGIN_WHITELIST = ['http://127.0.0.3000'
                          ,'http://localhost:3000']
 CORS_ALLOW_CREDENTIALS = True
 
@@ -86,13 +86,13 @@ WSGI_APPLICATION = "cudproj.wsgi.application"
 
 DATABASES = {
     "default": {
-    "ENGINE": "django.db.backends.mysql",
-    "NAME": "db_user",
-    "USER": "admin_user",
-    "PASSWORD": "user0409",
-    "HOST": "dbmysqluser.cfko8844sqv2.ap-northeast-2.rds.amazonaws.com",
-    "PORT": "3306",
-}
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "db_user",
+        "USER": "admin_user",
+        "PASSWORD": "user0409",
+        "HOST": "dbmysqluser.cfko8844sqv2.ap-northeast-2.rds.amazonaws.com",
+        "PORT": "3306",
+    }
 }
 
 

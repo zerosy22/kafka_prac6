@@ -112,9 +112,15 @@ function AddSignup(props) {
             setUserAdultKey("");
             setUserLikeGenre("");
             setUserLikeVod("");
+            alert("저장에 성공했습니다.");
         })
         .catch(error => {
             console.error('There was an error!', error);
+            if (error.response && error.response.data && error.response.data.error) {
+                alert(error.response.data.error);
+            } else {
+                alert("저장을 실패했습니다.");
+            }
         });
     };
 
