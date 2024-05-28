@@ -17,8 +17,9 @@ def signupAPI(request):
     data = request.data
     print(data)
     data['SETBX_ID'] = int(data['SETBX_ID'])
-    serializer = SignupSerializer(data=data)
-    if(serializer.is_valid()):
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    if request.method == 'POST':
+        serializer = SignupSerializer(data=data)
+        if(serializer.is_valid()):
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

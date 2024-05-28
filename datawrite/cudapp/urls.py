@@ -3,5 +3,5 @@ from .views import helloAPI, signupAPI
 
 urlpatterns = [
     path("hello/", helloAPI),
-    path("signup_cud/", signupAPI),
+    path("signup_cud/", signupAPI, name='signup_cud'),
 ]
