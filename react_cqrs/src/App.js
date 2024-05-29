@@ -36,7 +36,8 @@ function App() {
       console.log(response.data)
       if (response.status === 201) {
         alert("저장에 성공했습니다.");
-        setData(data + 1);  // 데이터 상태 변경으로 인해 useEffect 재실행
+        // setData(data + 1);  // 데이터 상태 변경으로 인해 useEffect 재실행
+        setItems(prevItems => [...prevItems, response.data]);
       } else {
         alert("코멘트를 저장하지 못했습니다.");
       }
@@ -48,18 +49,18 @@ function App() {
 
 
 
-return (
-  <div className="App">
-    <Paper style={{ margin: 16 }}>
-      <AddSignup add = {add}/>
-    </Paper>
-    {items.map((item, index) => (
-      <p key = {index}>
-        {item.USER_NAME}
-      </p>
-    ))}
-</div>
-);
+  return (
+    <div className="App">
+      <Paper style={{ margin: 16 }}>
+        <AddSignup add = {add}/>
+      </Paper>
+      {items.map((item, index) => (
+        <p key = {index}>
+          {item.USER_NAME}
+        </p>
+      ))}
+  </div>
+  );
 
   // return (
   //   <div className="App">

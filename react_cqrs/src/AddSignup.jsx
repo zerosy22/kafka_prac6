@@ -16,39 +16,39 @@ function AddSignup(props) {
     const [userLikeGenre, setUserLikeGenre] = useState("");
     const [userLikeVod, setUserLikeVod] = useState("");
 
-    const onSetbxIdChange = (event) => {
-        setSetbxId(event.target.value);
-    };
-    const onUserEmailChange = (event) => {
-        setUserEmail(event.target.value);
-    };
-    const onUserPwdChange = (event) => {
-        setUserPwd(event.target.value);
-    };
-    const onUserNameChange = (event) => {
-        setUserName(event.target.value);
-    };
-    const onUserPhoneChange = (event) => {
-        setUserPhone(event.target.value);
-    };
-    const onUserSexChange = (event) => {
-        setUserSex(event.target.value);
-    };
-    const onUserBirthChange = (event) => {
-        setUserBirth(event.target.value);
-    };
-    const onUserAdultChange = (event) => {
-        setUserAdult(event.target.value);
-    };
-    const onUserAdultKeyChange = (event) => {
-        setUserAdultKey(event.target.value);
-    };
-    const onUserLikeGenreChange = (event) => {
-        setUserLikeGenre(event.target.value);
-    };
-    const onUserLikeVodChange = (event) => {
-        setUserLikeVod(event.target.value);
-    };
+    // const onSetbxIdChange = (event) => {
+    //     setSetbxId(event.target.value);
+    // };
+    // const onUserEmailChange = (event) => {
+    //     setUserEmail(event.target.value);
+    // };
+    // const onUserPwdChange = (event) => {
+    //     setUserPwd(event.target.value);
+    // };
+    // const onUserNameChange = (event) => {
+    //     setUserName(event.target.value);
+    // };
+    // const onUserPhoneChange = (event) => {
+    //     setUserPhone(event.target.value);
+    // };
+    // const onUserSexChange = (event) => {
+    //     setUserSex(event.target.value);
+    // };
+    // const onUserBirthChange = (event) => {
+    //     setUserBirth(event.target.value);
+    // };
+    // const onUserAdultChange = (event) => {
+    //     setUserAdult(event.target.value);
+    // };
+    // const onUserAdultKeyChange = (event) => {
+    //     setUserAdultKey(event.target.value);
+    // };
+    // const onUserLikeGenreChange = (event) => {
+    //     setUserLikeGenre(event.target.value);
+    // };
+    // const onUserLikeVodChange = (event) => {
+    //     setUserLikeVod(event.target.value);
+    // };
 
     const onSubmit = (event) => {
         event.preventDefault();
@@ -92,7 +92,7 @@ function AddSignup(props) {
     //     setUserLikeVod("");
     // }
         // App.js에서 전달할 함수를 호출해서 데이터를 삽입
-        props.add(user);
+        // props.add(user);
         
         axios.post('http://127.0.0.1:8000/signup_cud/', user, {
             headers: {
@@ -116,11 +116,12 @@ function AddSignup(props) {
         })
         .catch(error => {
             console.error('There was an error!', error);
-            if (error.response && error.response.data && error.response.data.error) {
-                alert(error.response.data.error);
-            } else {
-                alert("저장을 실패했습니다.");
-            }
+            alert(error.response.data.error);
+            // if (error.response && error.response.data && error.response.data.error) {
+            //     alert(error.response.data.error);
+            // } else {
+            //     alert("저장을 실패했습니다.");
+            // }
         });
     };
 
